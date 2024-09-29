@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgb(81, 178, 81); /* Cambia esto si quieres un color de fondo diferente */
+}
+
+.navbar-logo img {
+  width: 120px; /* Ajusta el tamaño del logo */
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navlist {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.navlist:hover {
+  color: grey; /* Cambia el color al hacer hover si lo deseas */
+}
