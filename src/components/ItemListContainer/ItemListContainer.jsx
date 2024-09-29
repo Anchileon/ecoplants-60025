@@ -1,37 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  getFirestore,
+} from "firebase/firestore";
 import ClipLoader from "react-spinners/ClipLoader";
 import "./style.css";
+import CartContext from "../../context/CartContext/CartContexton";
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  
+  const { sumar, restar } = useContext(CartContext);
+  console.log(sumar(10, 2));
+  console.log(restar(10, 2));
 
   useEffect(() => {
     const db = getFirestore();
     const itemsCollection = collection(db, "items");
 
-    getDocs(itemsCollection)
+    // Cambia "categoryId" por "category" en la consulta
+    const q = categoryId
+      ? query(itemsCollection, where("category", "==", categoryId))
+      : itemsCollection;
+
+    getDocs(q)
       .then((snapshot) => {
         const itemsData = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
         setItems(itemsData);
+        setLoading(false);
       })
-      .catch((err) => {
-        setError(err.message);
-      })
-      .finally(() => {
+      .catch((error) => {
+        setError(error.message);
         setLoading(false);
       });
-  }, []);
+  }, [categoryId]);
 
   if (loading) {
     return (

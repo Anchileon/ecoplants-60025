@@ -5,10 +5,12 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CartDetail from "./components/Cart/Cart";
+import CartContextProvider from "./context/CartContext/CartContextProvider";
 
 const App = () => {
   return (
-    <div>
+    <>
+      <CartContextProvider>
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
@@ -16,7 +18,8 @@ const App = () => {
         <Route path="/detail/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<CartDetail />} />
       </Routes>
-    </div>
+      </CartContextProvider>
+    </>
   );
 };
 
