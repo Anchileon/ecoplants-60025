@@ -3,9 +3,9 @@ import Item from "./Item";
 
 const ItemList = ({ items }) => {
   return (
-    <div>
+    <div className="card-container"> 
       {items.map((el) => (
-        <Item key={el.id} item={el} /> 
+        <Item key={el.id} item={el} />
       ))}
     </div>
   );

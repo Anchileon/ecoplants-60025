@@ -27,7 +27,7 @@ const Form = ({ handleChange, submit, formData, error }) => {
         />
         {error.email && <span className="error">{error.email}</span>}
       </div>
-      <button type="submit" className="submit-button">Enviar</button>
+      <button type="submit" className="submit-button">comprar</button>
     </form>
   );
 };

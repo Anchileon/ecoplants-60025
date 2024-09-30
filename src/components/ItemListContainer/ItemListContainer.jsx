@@ -18,8 +18,7 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { sumar, restar } = useContext(CartContext);
-  console.log(sumar(10, 2));
-  console.log(restar(10, 2));
+
 
   useEffect(() => {
     const db = getFirestore();

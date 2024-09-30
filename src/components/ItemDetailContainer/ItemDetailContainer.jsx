@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { getDoc, doc, getFirestore } from "firebase/firestore";
+import CartContext from "../../context/CartContext/CartContexton";
+
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const { id } = useParams();
+  const {addItem} = useContext(CartContext)
+  const onAdd = (q) => {
+    addItem(item,q)
+  }
   useEffect(() => {
     const db = getFirestore();
     const docRef = doc(db, "items", id);
-  
+
     getDoc(docRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        setItem({
-          id: snapshot.id,
-          ...snapshot.data(),
-        });
-      } else {
-        console.error("Item no encontrado");
-      }
-    }).catch((err) => {
-      console.error("Error al obtener el documento", err);
+      setItem({
+        id: snapshot.id,
+        ...snapshot.data(),
+      });
     });
-  }, [id]);
-  return <div className="item-detail">{<ItemDetail item={item} />}</div>;
+  }, []);
+
+  return <div className="item-detail">{<ItemDetail item={item} onAdd={onAdd} />}</div>;
 };
 
 export default ItemDetailContainer;

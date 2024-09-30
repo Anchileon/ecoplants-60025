@@ -1,0 +1,14 @@
+/* ItemDetailContainer style.css */
+.item-detail {
+    margin: 20px; /* Margen alrededor */
+    padding: 20px; /* Relleno interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .item-detail img {
+    max-width: 100%; /* Asegúrate de que la imagen sea responsiva */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+  }
+  

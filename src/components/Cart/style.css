@@ -1,0 +1,75 @@
+.cart-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f9f9f9; /* Fondo suave */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.cart-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff; /* Fondo blanco para los items */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #e0e0e0; /* Borde sutil */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
+}
+
+.cart-container > div:hover {
+  transform: scale(1.02); /* Efecto de escala al pasar el mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aumentar la sombra al hacer hover */
+}
+
+.cart-image {
+  width: 100px; /* Tamaño de la imagen */
+  height: auto;
+  border-radius: 8px; /* Bordes redondeados en la imagen */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para la imagen */
+}
+
+.remove {
+  background-color: #dc3545; /* Color del botón de eliminar */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición suave para el color */
+  font-weight: bold; /* Texto más destacado */
+}
+
+.remove:hover {
+  background-color: #c82333; /* Color más oscuro al hacer hover */
+}
+
+.cart-container p {
+  margin: 0;
+  font-size: 1rem; /* Tamaño de fuente legible */
+  color: #333; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Tipografía más profesional */
+}
+
+.error-message {
+  color: #dc3545; /* Color del mensaje de error */
+  font-size: 0.9rem; /* Tamaño de fuente para el mensaje de error */
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 1rem; /* Ajustes para móviles */
+  }
+
+  .cart-container > div {
+    flex-direction: column; /* Cambio de dirección en móviles */
+    align-items: flex-start; /* Alinear elementos a la izquierda */
+  }
+
+  .cart-image {
+    width: 80px; /* Tamaño más pequeño en móviles */
+    margin-bottom: 1rem; /* Espacio debajo de la imagen */
+  }
+}

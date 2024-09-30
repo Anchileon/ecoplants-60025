@@ -1,18 +1,19 @@
+/* ItemListContainer style.css */
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
   padding: 20px;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenedor */
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias filas */
 }
 
 .card {
-  width: 60vw;
-  max-width: 300px;
+  width: calc(25% - 20px); /* Ancho del 25% del contenedor, menos el margen */
+  max-width: none; /* Sin un ancho máximo */
   height: auto;
   box-shadow: 0 0 5px rgb(0, 0, 0);
-  margin-bottom: 20px;
+  padding: 10px; /* Espacio alrededor de cada card */
+  margin: 5px;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -30,11 +31,28 @@
 }
 
 .card-container {
-  display: grid; /* Usar grid para un diseño más organizado */
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Columnas responsivas */
-  gap: 20px; /* Espacio entre cards */
-  padding: 20px; /* Espacio alrededor de las cards */
+  display: flex; /* Usar flexbox para una disposición en fila */
+  flex-wrap: wrap; /* Permitir que las cards se envuelvan */
+  justify-content: space-evenly; /* Espacio entre cards */
+}
+
+.button {
+  display: inline-block; /* Permite aplicar padding y margen */
+  padding: 10px 15px; /* Espaciado interno del botón */
+  margin-top: 10px; /* Margen superior para separación */
+  background-color: rgb(81, 178, 81); /* Color de fondo verde */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para un efecto de profundidad */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.button:hover {
+  background-color: rgb(70, 158, 70); /* Color más oscuro al pasar el mouse */
+  transform: translateY(-2px); /* Eleva el botón un poco al hacer hover */
+}
+
+.button:active {
+  transform: translateY(0); /* Restablece la posición al hacer clic */
 }

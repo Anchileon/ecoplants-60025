@@ -1,6 +1,6 @@
 import React from "react";
 import Counter from "../Counter/Counter";
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAdd }) => {
   if (!item) {
     return <p>Item no disponible.</p>;
   }
@@ -12,9 +12,7 @@ const ItemDetail = ({ item }) => {
         <p>Category: {item.category}</p>
         <p>Price: ${item.price}</p>
         <Counter
-          onAdd={(q) => {
-            console.log("agregar", q);
-          }}
+          onAdd={onAdd}
         />
       </div>
     </>
